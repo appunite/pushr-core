@@ -109,4 +109,10 @@ if ENV['AIRBRAKE_API_KEY']
   end
 end
 
+if ENV['ROLLBAR_API_KEY']
+  Rollbar.configure do |config|
+    config.access_token = ENV['ROLLBAR_API_KEY']
+  end
+end
+
 Pushr::Daemon.start(settings)
