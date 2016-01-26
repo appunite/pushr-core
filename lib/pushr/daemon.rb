@@ -93,9 +93,6 @@ module Pushr
       Process.setsid
       exit if fork
 
-      Dir.chdir '/'
-      File.umask 0000
-
       STDIN.reopen '/dev/null'
       STDOUT.reopen '/dev/null', 'a'
       STDERR.reopen STDOUT
