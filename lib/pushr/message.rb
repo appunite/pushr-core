@@ -13,7 +13,6 @@ module Pushr
 
     def save
       if valid?
-        puts "save and_redis_queue pushr:#{app}:#{self.class::POSTFIX} #{to_json}"
         Pushr::Core.redis { |conn| conn.rpush("pushr:#{app}:#{self.class::POSTFIX}", to_json) }
         return true
       else
